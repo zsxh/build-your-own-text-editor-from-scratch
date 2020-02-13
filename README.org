@@ -3,5 +3,18 @@
 * Build Your Own Text Editor
   https://viewsourcecode.org/snaptoken/kilo/index.html
 
-
-
+* ASCII table
+  http://www.asciitable.com/
+  ASCII codes 0-31 are control characters, and 127 is also a control character.(nonprintable characters)
+  ASCII codes 32-126 are all printable.
+  - /escape sequence/
+    Arrow keys, *Page Up*, *Page Down*, *Home*, *End* ... all input 3 or 4 bytes to the terminal: =27=, ='['= , and then one or two other characters.
+    All escape sequence start with a =27= byte.
+    Press *escape* sends a single =27= byte as input.
+  - *Backspace* is byte =127=
+  - *Enter* is byte =10=, which is a newline character, also known as ='\n'=
+  - *Ctrl-A* is =1=, *Ctrl-B* is =2=, ...
+  - *Ctrl-S* program stop sending you output
+    *Ctrl-Q* resume sending you output
+  - *Ctrl-Z* suspend to the background
+    Run =fg= command to bring it back to the foreground
