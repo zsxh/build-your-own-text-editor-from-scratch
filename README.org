@@ -18,3 +18,8 @@
     *Ctrl-Q* resume sending you output
   - *Ctrl-Z* suspend to the background
     Run =fg= command to bring it back to the foreground
+
+  *Ctrl-A* is =1=, *Ctrl-B* is =2=, *Ctrl-C* is =3=, ... *Ctrl-J* is =10=, *Ctrl-K* is =11=, *Ctrl-L* is =12=, *Ctrl-M* is =10=,
+  Q: Since *Ctrl-J* is =10=, then why *Ctrl-M* is also =10= ?
+  A: You may find that *Enter* key also produces =10=, that's because the terminal is helpfully translating any carriage returns (=13=, '\r') inputted by the user into newlines (=10=, '\n').
+  Turn off ICRNL(comes from <termios.h>, the I stands for "input flag", CR stands for "carriage return", and NL stands for "new line"), *Ctrl-M* will be read as a =13=, and the *Enter* key is also read as a =13=.
