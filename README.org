@@ -5,12 +5,16 @@
 
 * ASCII table
   http://www.asciitable.com/
+
   ASCII codes 0-31 are control characters, and 127 is also a control character.(nonprintable characters)
+
   ASCII codes 32-126 are all printable.
   - /escape sequence/
+
     Arrow keys, *Page Up*, *Page Down*, *Home*, *End* ... all input 3 or 4 bytes to the terminal: =27=, ='['= , and then one or two other characters.
     All escape sequence start with a =27= byte.
     Press *escape* sends a single =27= byte as input.
+
   - *Backspace* is byte =127=
   - *Enter* is byte =10=, which is a newline character, also known as ='\n'=
   - *Ctrl-A* is =1=, *Ctrl-B* is =2=, ...
@@ -19,10 +23,14 @@
   - *Ctrl-Z* suspend to the background
     Run =fg= command to bring it back to the foreground
 
-  *Ctrl-A* is =1=, *Ctrl-B* is =2=, *Ctrl-C* is =3=, ... *Ctrl-J* is =10=, *Ctrl-K* is =11=, *Ctrl-L* is =12=, *Ctrl-M* is =10=,
+  *Ctrl-A* is =1=, *Ctrl-B* is =2=, *Ctrl-C* is =3=, ... *Ctrl-J* is =10=, *Ctrl-K* is =11=, *Ctrl-L* is =12=, *Ctrl-M* is =10= ...,
+
   Q: Since *Ctrl-J* is =10=, then why *Ctrl-M* is also =10= ?
+
   A: You may find that *Enter* key also produces =10=, that's because the terminal is helpfully translating any carriage returns (=13=, '\r') inputted by the user into newlines (=10=, '\n').
+
   Turn off ICRNL(comes from <termios.h>, the I stands for "input flag", CR stands for "carriage return", and NL stands for "new line"), *Ctrl-M* will be read as a =13=, and the *Enter* key is also read as a =13=.
 
   It turns out that the terminal does a similar translation on the output side. It translates each ("\n") we print into a carriage return followed by a newline ("\r\n").
-  Turn off OPOST(comes form <tremios.h>. O means it;s an output flag, and I assume POST stands for "post-processing of output"), you'll see that the newline characters we're printing are only moving the cursor down, and not to the left side of the screen.
+
+  Turn off OPOST(comes form <termios.h>, O means it's an output flag, and I assume POST stands for "post-processing of output"), you'll see that the newline characters we're printing are only moving the cursor down, and not to the left side of the screen.
