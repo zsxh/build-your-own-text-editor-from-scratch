@@ -3,18 +3,14 @@
 * Build Your Own Text Editor
   https://viewsourcecode.org/snaptoken/kilo/index.html
 
-* ASCII table
-  http://www.asciitable.com/
-
-  ASCII codes 0-31 are control characters, and 127 is also a control character.(nonprintable characters)
-
+* ASCII
+  http://www.asciitable.com/ \\
+  ASCII codes 0-31 are control characters, and 127 is also a control character.(nonprintable characters) \\
   ASCII codes 32-126 are all printable.
-  - /escape sequence/
-
-    Arrow keys, *Page Up*, *Page Down*, *Home*, *End* ... all input 3 or 4 bytes to the terminal: =27=, ='['= , and then one or two other characters.
+  - /escape sequence/ \\
+    *Arrow keys*, *Page Up*, *Page Down*, *Home*, *End* ... all input 3 or 4 bytes to the terminal: =27=, ='['= , and then one or two other characters.
     All escape sequence start with a =27= byte.
     Press *escape* sends a single =27= byte as input.
-
   - *Backspace* is byte =127=
   - *Enter* is byte =10=, which is a newline character, also known as ='\n'=
   - *Ctrl-A* is =1=, *Ctrl-B* is =2=, ...
@@ -25,12 +21,16 @@
 
   *Ctrl-A* is =1=, *Ctrl-B* is =2=, *Ctrl-C* is =3=, ... *Ctrl-J* is =10=, *Ctrl-K* is =11=, *Ctrl-L* is =12=, *Ctrl-M* is =10= ...,
 
-  Q: Since *Ctrl-J* is =10=, then why *Ctrl-M* is also =10= ?
-
+  Q: Since *Ctrl-J* is =10=, then why *Ctrl-M* is also =10= ? \\
   A: You may find that *Enter* key also produces =10=, that's because the terminal is helpfully translating any carriage returns (=13=, '\r') inputted by the user into newlines (=10=, '\n').
 
-  Turn off ICRNL(comes from <termios.h>, the I stands for "input flag", CR stands for "carriage return", and NL stands for "new line"), *Ctrl-M* will be read as a =13=, and the *Enter* key is also read as a =13=.
-
-  It turns out that the terminal does a similar translation on the output side. It translates each ("\n") we print into a carriage return followed by a newline ("\r\n").
-
+  Turn off ICRNL(comes from <termios.h>, the I stands for "input flag", CR stands for "carriage return", and NL stands for "new line"), *Ctrl-M* will be read as a =13=, and the *Enter* key is also read as a =13=. \\
+  It turns out that the terminal does a similar translation on the output side. It translates each ("\n") we print into a carriage return followed by a newline ("\r\n"). \\
   Turn off OPOST(comes form <termios.h>, O means it's an output flag, and I assume POST stands for "post-processing of output"), you'll see that the newline characters we're printing are only moving the cursor down, and not to the left side of the screen.
+
+* Escape sequence
+  /Escape sequence/ always start with an escape character(=27= in decimal, or =\x1b= in bytes) followed by a =[= character. \\
+  Escape sequences instruct the terminal to do various text formatting tasks, such as coloring text, moving the cursor around, and clearing parts of the screen. \\
+  Escape sequence commands take arguments, which come before the command. \\
+  For example, we use =J= command([[https://vt100.net/docs/vt100-ug/chapter3.html#ED][Erase In Display]]) to clear the screen: =<esc>[2J= would clear the entire screen, =<esc>[1J= would clear the screen up to where the cursor is, and =<esc>[0J= would clear the screen from the cursor up to the end of the screen. Also, =0= is the default argumnet for =J=, so just =<esc>[J= by itself would also clear the screen from the cursor to the end. \\
+  We will be mostly using [[https://vt100.net/docs/vt100-ug/chapter3.html][VT100]] escape sequences, which are supported very widely by modern terminal emulators.
