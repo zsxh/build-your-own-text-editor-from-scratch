@@ -3,6 +3,12 @@
 * Build Your Own Text Editor
   https://viewsourcecode.org/snaptoken/kilo/index.html
 
+* Run
+#+begin_src shell
+  make
+  ./zsxh
+#+end_src
+
 * ASCII
   http://www.asciitable.com/ \\
   ASCII codes 0-31 are control characters, and 127 is also a control character.(nonprintable characters) \\
