@@ -12,7 +12,7 @@ Learning to build a text editor from scratch.
 #+end_src
 
 * Note
-** ASCII
+** 1. ASCII
    http://www.asciitable.com/ \\
 
    #+begin_src shell
@@ -43,7 +43,7 @@ Learning to build a text editor from scratch.
    It turns out that the terminal does a similar translation on the output side. It translates each ("\n") we print into a carriage return followed by a newline ("\r\n"). \\
    Turn off OPOST(comes form <termios.h>, O means it's an output flag, and I assume POST stands for "post-processing of output"), you'll see that the newline characters we're printing are only moving the cursor down, and not to the left side of the screen.
 
-** Escape sequence
+** 2. Escape sequence
    /Escape sequence/ always start with an escape character(=27= in decimal, or =\x1b= in bytes) followed by a =[= character. \\
    Escape sequences instruct the terminal to do various text formatting tasks, such as coloring text, moving the cursor around, and clearing parts of the screen. \\
    Escape sequence commands take arguments, which come before the command.
@@ -54,7 +54,7 @@ Learning to build a text editor from scratch.
    Pressing =Ctrl-[= is the same as pressing the =Escape= key, for the same reason that =Ctrl-M= is the same as pressing =Enter= : =Ctrl= clears the 6th and 7th bits of the character you type in combination with it. You can adjust the =VTIME= value in =enableRawMode= to change terminal read() time out, so if VTIME value is large enough, it will make pressing combinations easier.
 
 
-** Compiler
+** 3. Compiler
    We have set -std=c11 -Wpedantic, which means that the normal defines are not available and POSIX function are not declared unless you explicitly set one of _POSIX_C_SOURCE or _XOPEN_SOURCE. \\
    We need to define a [[https://www.gnu.org/software/libc/manual/html_node/Feature-Test-Macros.html][feature test macro]]. We add them above our includes, because the header files we're including use the macros to decide what features to expose.
    #+begin_src c
