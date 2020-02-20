@@ -5,11 +5,16 @@ Learning to build a text editor from scratch.
 * Read
   https://viewsourcecode.org/snaptoken/kilo/index.html
 
-* Run
+* Usage
 #+begin_src shell
   make
-  ./zsxh
+  ./zsxh <filename>
 #+end_src
+
+Keys:
+#+begin_example
+CTRL-Q: Quit
+#+end_example
 
 * Note
 ** 1. ASCII
