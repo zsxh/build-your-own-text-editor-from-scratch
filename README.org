@@ -72,6 +72,10 @@ CTRL-Q: Quit
      #include <stdio.h>
    #+end_src
 
+** 4. Rendering nonprintable characters
+   The length of a *tab* is up to the terminal being used and its settings. \\
+   Rendering nonprintable characters tabs, a =^= character followed by another character, such as =^A= for the =Ctrl-A= character (this is a common way to display control characters in the terminal). 
+
 * See Also
   - [[https://github.com/antirez/kilo][kilo]] - A text editor in less than 1000 LOC with syntax highlight and search.
   - [[https://github.com/ilai-deutel/kibi][kibi]] - A text editor in ≤1024 lines of code, written in Rust
