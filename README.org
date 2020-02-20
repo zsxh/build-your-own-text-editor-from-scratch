@@ -58,7 +58,7 @@ CTRL-Q: Quit
 
    Pressing =Ctrl-[= is the same as pressing the =Escape= key, for the same reason that =Ctrl-M= is the same as pressing =Enter= : =Ctrl= clears the 6th and 7th bits of the character you type in combination with it. You can adjust the =VTIME= value in =enableRawMode= to change terminal read() time out, so if VTIME value is large enough, it will make pressing combinations easier.
 
-   The =m= command ([[https://vt100.net/docs/vt100-ug/chapter3.html#SGR][Select Graphic Rendition]]) causes the text printed after it to be printed with various possible attributes including bold (=1=), underscore (=4=), blink (=5=), and inverted colors (=7=). For example, you could specify all of these attributes using the command =<esc>[1;4;5;7m=. An argument of 0 clears all attributes, and is the default argument, so we use <esc>[m to go back to normal text formatting.
+   The =m= command ([[https://vt100.net/docs/vt100-ug/chapter3.html#SGR][Select Graphic Rendition]]) causes the text printed after it to be printed with various possible attributes including bold (=1=), underscore (=4=), blink (=5=), and inverted colors (=7=). For example, you could specify all of these attributes using the command =<esc>[1;4;5;7m=. An argument of 0 clears all attributes, and is the default argument, so we use =<esc>[m= to go back to normal text formatting.
 
 ** 3. Compiler
    We have set -std=c11 -Wpedantic, which means that the normal defines are not available and POSIX function are not declared unless you explicitly set one of _POSIX_C_SOURCE or _XOPEN_SOURCE. \\
