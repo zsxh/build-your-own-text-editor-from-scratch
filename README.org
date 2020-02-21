@@ -13,7 +13,8 @@ Learning to build a text editor from scratch.
 
 Keys:
 #+begin_example
-CTRL-Q: Quit
+Ctrl-S: Save
+Ctrl-Q: Quit
 #+end_example
 
 * Note
