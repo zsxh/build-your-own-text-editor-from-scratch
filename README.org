@@ -77,7 +77,8 @@ Ctrl-F: Find
 
 ** 4. Rendering nonprintable characters
    The length of a *tab* is up to the terminal being used and its settings. \\
-   Rendering nonprintable characters tabs, a =^= character followed by another character, such as =^A= for the =Ctrl-A= character (this is a common way to display control characters in the terminal).
+   Rendering nonprintable characters tabs, a =^= character followed by another character, such as =^A= for the =Ctrl-A= character (this is a common way to display control characters in the terminal). \\
+   We use =iscntrl()= to check if the current character is a control character. If so, we translate it into a printable character by adding its value to '@' (in ASCII, the capital letters of the alphabet come after the @ character), or using the '?' character if it’s not in the alphabetic range.
 
 * See Also
   - [[https://github.com/antirez/kilo][kilo]] - A text editor in less than 1000 LOC with syntax highlight and search.
