@@ -2,6 +2,8 @@
 
 Learning to build a text editor from scratch.
 
+[[https://asciinema.org/a/wGQ9u09MwglWub59mJp6UY5Jv][https://asciinema.org/a/wGQ9u09MwglWub59mJp6UY5Jv.svg]]
+
 * Read
   https://viewsourcecode.org/snaptoken/kilo/index.html
 
