@@ -1,6 +1,6 @@
 #+startup: showall
 
-Learning to build a text editor from scratch.
+*Building text-editor from scratch in order to understand how does a text-editor work.*
 
 [[https://asciinema.org/a/wGQ9u09MwglWub59mJp6UY5Jv][https://asciinema.org/a/wGQ9u09MwglWub59mJp6UY5Jv.svg]]
 
